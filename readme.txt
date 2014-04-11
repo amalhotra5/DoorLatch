@@ -1,9 +1,9 @@
 C++ Program
 
-To compile the program in Windows/Linux use the c++11 version
+To compile the program in Windows/Linux use c++98 or c++11 versions both will work
 * Clone the directory
 * Run the following command on windows cygwin or linux terminal
-	g++ -std=c++11 -W -Wall main.cpp
+	$ g++ -W -Wall main.cpp
 
 There is also a compiled executable provided in the exe folder	
 /***************************************************************
