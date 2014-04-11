@@ -1,29 +1,27 @@
 #include <iostream>
-#include <iomanip>
 #include <stdlib.h>
-#include <algorithm>
 
 using namespace std;
+
 int size; //global
+
+//Use this to set the dangerous level threshold
+#define DANGER_LEVEL 100
 
 #include "CSensor.h"
 #include "CMotor.h"
 #include "DLatch.h"
-#include "SMachine.h"
 
 int main()
 {
 	//Sensor data;
 	int data[] = {100, 101, 105, 110, 210, 100, 102, 110, 150, 100};
+	int data2[] = {100, 101, 105, 110, 110, 100, 100, 102, 80, 70};
+	
 	size = sizeof(data)/sizeof(data[0]);
 	
-	DLatch latch(1000); // Door latch with value 1000
-	CSensor sensor;  // sensor that reads the value
-	CMotor motor; //motor 
+	DLatch latch(data); 
 	
-	//State Machine
-	SMachine m(data, sensor, motor, latch);
-	m.start(); // start mode
-	m.run(); // run mode
-	m.stop(); // stop mode
+	latch.run();
+	latch.run(data2);
 }

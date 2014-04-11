@@ -1,18 +1,20 @@
-
 //Sensor Class
+
 class CSensor
 {
 	private:
-		int *data_;
+		int reading_;
 		
 	public:
-		CSensor(){} //Constructor
-		CSensor(CSensor &cs):data_(cs.data_){} //Copy Constructor
-		~CSensor(){} //Destructor
+	
+		//Takes the reading from the Sensor and uses it to calibrates the sensor
+		bool Calibrate(); 
 		
-		bool Calibrate(); //calibrates the sensor and returns true
-		void ReadData(int data[]); //wrapper 
-		double getAverage(); // computes the average of the read data
+		//Reads data from the sensor and stores the average value as the current reading
+		void ReadData(int data[]);
+		
+		//returns the value of the reading;
+		int Value();
 };
 
 bool CSensor::Calibrate()
@@ -24,16 +26,17 @@ bool CSensor::Calibrate()
 void CSensor::ReadData(int data[])
 {
 	cout << "Reading the data" << endl;
-	data_ = data;
-}
-
-double CSensor::getAverage()
-{
+	
 	int sum = 0;
 	int i;
 	
 	for(i = 0; i < size; i++)
-		sum += data_[i];
+		sum += data[i];
 	
-	return sum / size;
+	reading_ = sum / size;
+}
+
+int CSensor::Value()
+{
+	return reading_;
 }

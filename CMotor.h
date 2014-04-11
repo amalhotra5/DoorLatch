@@ -1,4 +1,5 @@
-// CMOtor Class
+// CMotor Class
+
 class CMotor
 {
 	private:
@@ -6,11 +7,12 @@ class CMotor
 		
 	public:
 		CMotor():position_(0){} // constructor
-		CMotor(CMotor &cm):position_(cm.position_){} // copy constructor
 		
-		void ResetMotor(); // brings the motor to its original position
-		void MoveMotor(int distance); // moves the motor by that distance
-		int getPosition(); // returns the position of the motor
+		// Reset the motor to its original position '0'
+		void ResetMotor(); 
+		
+		// moves the motor using absolute positioning (+ or -)
+		void MoveMotor(int distance); 
 };
 
 void CMotor::ResetMotor()
@@ -22,9 +24,4 @@ void CMotor::MoveMotor(int distance)
 {
 	cout << "Moving the Motor from " << position_ << " to " << position_ + distance << endl;
 	position_ += distance;
-}
-
-int CMotor::getPosition()
-{
-	return position_;
 }
