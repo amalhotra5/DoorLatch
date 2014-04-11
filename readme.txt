@@ -4,7 +4,8 @@ To compile the program in Windows/Linux use the c++11 version
 * Clone the directory
 * Run the following command on windows cygwin or linux terminal
 	g++ -std=c++11 -W -Wall main.cpp
-	
+
+There is also a compiled executable provided in the exe folder	
 /***************************************************************
 There are 2 test cases for the driver class(main).
 In first, the sensor senses the DANGER LEVEL and Opens the Door Latch by 
